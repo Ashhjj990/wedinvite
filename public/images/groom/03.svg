@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg2" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#efe4db"/>
+      <stop offset="100%" stop-color="#d9b9b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <circle cx="400" cy="180" r="110" fill="#d7a395" opacity="0.75"/>
+  <path d="M140 500C220 360 290 330 400 330C515 330 590 360 660 500L140 500Z" fill="#f8f4f3" opacity="0.8"/>
+  <text x="400" y="420" text-anchor="middle" font-size="54" fill="#43343a" font-family="Georgia, serif" letter-spacing="4">GROOM</text>
+  <text x="400" y="470" text-anchor="middle" font-size="26" fill="#5b4644" font-family="Arial, sans-serif" letter-spacing="3">Placeholder gallery image</text>
+</svg>
+

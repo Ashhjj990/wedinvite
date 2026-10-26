@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg7" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f5d9d6"/>
+      <stop offset="100%" stop-color="#d5b5bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg7)"/>
+  <circle cx="260" cy="200" r="90" fill="#cf9b94" opacity="0.8"/>
+  <circle cx="540" cy="200" r="90" fill="#e2b9c0" opacity="0.75"/>
+  <rect x="120" y="290" width="560" height="180" rx="26" fill="#fffaf5" opacity="0.82"/>
+  <text x="400" y="420" text-anchor="middle" font-size="52" fill="#45363e" font-family="Georgia, serif" letter-spacing="4">TOGETHER</text>
+  <text x="400" y="470" text-anchor="middle" font-size="24" fill="#5a4c50" font-family="Arial, sans-serif" letter-spacing="3">Replace with a real couple photo</text>
+</svg>
+

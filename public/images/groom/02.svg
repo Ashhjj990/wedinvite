@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8d7d2"/>
+      <stop offset="100%" stop-color="#dac2bb"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg1)"/>
+  <circle cx="400" cy="190" r="120" fill="#e9b3ad" opacity="0.7"/>
+  <rect x="160" y="300" width="480" height="210" rx="30" fill="#f5f0ef" opacity="0.8"/>
+  <rect x="220" y="200" width="360" height="180" rx="180" fill="#c99d91" opacity="0.6"/>
+  <text x="400" y="420" text-anchor="middle" font-size="54" fill="#473734" font-family="Georgia, serif" letter-spacing="4">GROOM PHOTO</text>
+  <text x="400" y="470" text-anchor="middle" font-size="26" fill="#5b4644" font-family="Arial, sans-serif" letter-spacing="3">Replace with your own image</text>
+</svg>
+

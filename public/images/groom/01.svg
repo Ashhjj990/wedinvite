@@ -1,0 +1,221 @@
+const weddingDate = new Date("2026-12-12T16:30:00");
+const introVideo = document.getElementById("introVideo");
+const introCard = document.getElementById("introCard");
+const introVideoPanel = document.getElementById("introVideoPanel");
+const openInvitationBtn = document.getElementById("openInvitationBtn");
+const musicToggleBtn = document.getElementById("musicToggle");
+const bgMusic = document.getElementById("bgMusic");
+const replayIntroBtn = document.getElementById("replayIntro");
+const mainPage = document.getElementById("mainPage");
+
+function updateCountdown() {
+  const now = new Date();
+  const distance = weddingDate.getTime() - now.getTime();
+
+  if (distance <= 0) {
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+    return;
+  }
+
+  const days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, "0");
+  const hours = String(Math.floor((distance / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+  const minutes = String(Math.floor((distance / (1000 * 60)) % 60)).padStart(2, "0");
+  const seconds = String(Math.floor((distance / 1000) % 60)).padStart(2, "0");
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+function showMainPage() {
+  mainPage.classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function startIntroSequence() {
+  introCard.classList.add("hidden");
+  introVideoPanel.classList.remove("hidden");
+  introVideo.muted = true;
+  introVideo.play().catch(() => {
+    console.warn("Video playback requires user interaction.");
+  });
+
+  if (!bgMusic.muted) {
+    bgMusic.volume = 0.4;
+    bgMusic.play().catch(() => {
+      console.warn("Audio playback requires user interaction.");
+    });
+  }
+}
+
+openInvitationBtn.addEventListener("click", () => {
+  startIntroSequence();
+});
+
+musicToggleBtn.addEventListener("click", () => {
+  const isMuted = bgMusic.muted;
+  bgMusic.muted = !isMuted;
+  bgMusic.volume = 0.4;
+
+  if (!bgMusic.muted) {
+    bgMusic.play().catch(() => {
+      console.warn("Audio playback requires user interaction.");
+    });
+  }
+
+  musicToggleBtn.innerHTML = `<span class="icon">${bgMusic.muted ? "♫" : "🔇"}</span>`;
+});
+
+replayIntroBtn.addEventListener("click", () => {
+  introVideo.currentTime = 0;
+  introVideo.play().catch(() => {
+    console.warn("Replay requires user interaction.");
+  });
+  if (!bgMusic.muted) {
+    bgMusic.currentTime = 0;
+    bgMusic.play().catch(() => {
+      console.warn("Audio playback requires user interaction.");
+    });
+  }
+});
+
+introVideo.addEventListener("ended", () => {
+  setTimeout(() => {
+    showMainPage();
+    introVideoPanel.classList.add("hidden");
+  }, 500);
+});
+
+const revealElements = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+revealElements.forEach((element) => observer.observe(element));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const rsvpForm = document.getElementById("rsvpForm");
+const successMessage = document.getElementById("rsvpSuccess");
+
+rsvpForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  successMessage.classList.add("show");
+  rsvpForm.reset();
+});
+
+const defaultWishes = [
+  {
+    name: "Ella",
+    message: "Wishing you endless laughter, soft mornings, and a lifetime of joy together."
+  },
+  {
+    name: "Marcus & Priya",
+    message: "May your home always be filled with love, laughter, and warmth."
+  },
+  {
+    name: "Grace",
+    message: "Your story is beautiful, and we are so happy to celebrate this joyful new chapter with you."
+  }
+];
+
+const wishList = document.getElementById("wishList");
+const wishForm = document.getElementById("wishForm");
+const storageKey = "wedding-wishes";
+
+function getSavedWishes() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey));
+    return Array.isArray(saved) && saved.length ? saved : defaultWishes;
+  } catch (error) {
+    return defaultWishes;
+  }
+}
+
+function renderWishes() {
+  const wishes = getSavedWishes();
+  wishList.innerHTML = wishes
+    .slice(-4)
+    .reverse()
+    .map(
+      (wish) => `
+        <article class="wish-card">
+          <strong>${wish.name}</strong>
+          <p>${wish.message}</p>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function saveWishes(wishes) {
+  localStorage.setItem(storageKey, JSON.stringify(wishes));
+}
+
+wishForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("wishName").value.trim();
+  const message = document.getElementById("wishMessage").value.trim();
+
+  if (!name || !message) return;
+
+  const wishes = getSavedWishes();
+  wishes.push({ name, message });
+  saveWishes(wishes);
+  renderWishes();
+  wishForm.reset();
+});
+
+renderWishes();
+
+if (!localStorage.getItem(storageKey)) {
+  saveWishes(defaultWishes);
+}
+
+const photoCards = document.querySelectorAll(".photo-card img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const lightboxClose = document.getElementById("lightboxClose");
+
+photoCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const imageSource = card.getAttribute("src");
+    const caption = card.parentElement.querySelector("figcaption").textContent;
+    lightboxImage.src = imageSource;
+    lightboxCaption.textContent = caption;
+    lightbox.classList.remove("hidden");
+  });
+});
+
+lightboxClose.addEventListener("click", () => {
+  lightbox.classList.add("hidden");
+});
+
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) {
+    lightbox.classList.add("hidden");
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    lightbox.classList.add("hidden");
+  }
+});
+

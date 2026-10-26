@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg3" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f2d8d4"/>
+      <stop offset="100%" stop-color="#c9a89e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg3)"/>
+  <circle cx="300" cy="220" r="150" fill="#f7d2ca" opacity="0.65"/>
+  <circle cx="900" cy="220" r="150" fill="#f7d2ca" opacity="0.6"/>
+  <rect x="270" y="240" width="660" height="180" rx="20" fill="#f8f5f4" opacity="0.8"/>
+  <text x="600" y="330" text-anchor="middle" font-size="66" fill="#423437" font-family="Georgia, serif" letter-spacing="4">NOAH</text>
+  <text x="600" y="385" text-anchor="middle" font-size="30" fill="#5d4546" font-family="Arial, sans-serif" letter-spacing="5">Replace later with his real portrait</text>
+</svg>
+

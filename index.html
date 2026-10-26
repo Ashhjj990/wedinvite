@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Luxury wedding invitation for Ava and Noah with cinematic opening, gallery, wedding details, RSVP, and guest wishes."
+    />
+    <title>Ava & Noah | Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loading-screen" id="loadingScreen">
+      <div class="petal petal-1"></div>
+      <div class="petal petal-2"></div>
+      <div class="petal petal-3"></div>
+      <div class="petal petal-4"></div>
+      <div class="petal petal-5"></div>
+
+      <div class="intro-card" id="introCard">
+        <div class="envelope-wrap">
+          <div class="envelope">
+            <div class="flap"></div>
+            <div class="card-inner">
+              <span class="mini-tag">You are invited</span>
+              <h1>Ava <span>&</span> Noah</h1>
+              <p>Celebrate our love</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="open-btn" id="openInvitationBtn">Open Invitation</button>
+        <p class="intro-subtitle">Saturday, 12 December 2026</p>
+      </div>
+
+      <div class="intro-video-panel hidden" id="introVideoPanel">
+        <video
+          id="introVideo"
+          playsinline
+          muted
+          preload="metadata"
+          poster="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/854320/854320-hd_1920_1080.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="video-overlay"></div>
+
+        <div class="video-caption">
+          <p class="caption-tag">Our love story begins</p>
+          <h2>Ava <span>&</span> Noah</h2>
+        </div>
+
+        <div class="video-controls">
+          <button id="musicToggle" type="button" aria-label="Toggle background music">
+            <span class="icon">♫</span>
+          </button>
+          <button id="replayIntro" type="button" class="secondary-btn">Replay</button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="bgMusic" loop preload="none">
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div id="mainPage" class="main-page hidden">
+      <header class="topbar">
+        <div class="brand">Ava & Noah</div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#story">Our Story</a>
+          <a href="#details">Details</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#rsvp">RSVP</a>
+          <a href="#wishes">Wishes</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" id="home">
+          <div class="hero-background"></div>
+          <div class="hero-content reveal">
+            <p class="eyebrow">With love and gratitude, we invite you to celebrate</p>
+            <h1>Ava <span>&</span> Noah</h1>
+            <p class="wedding-date">Saturday, 12 December 2026</p>
+            <p class="location">Riviera Gardens • Costa del Sol</p>
+            <div class="cta-row">
+              <a href="#rsvp" class="btn btn-primary">RSVP</a>
+              <a href="#details" class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="countdown reveal" aria-label="Countdown to the wedding">
+          <div class="countdown-item">
+            <span id="days">00</span>
+            <small>Days</small>
+          </div>
+          <div class="countdown-item">
+            <span id="hours">00</span>
+            <small>Hours</small>
+          </div>
+          <div class="countdown-item">
+            <span id="minutes">00</span>
+            <small>Minutes</small>
+          </div>
+          <div class="countdown-item">
+            <span id="seconds">00</span>
+            <small>Seconds</small>
+          </div>
+        </section>
+
+        <section class="story section-shell reveal" id="story">
+          <div class="section-heading">
+            <p class="eyebrow">Our Story</p>
+            <h2>Love written in the quiet moments</h2>
+          </div>
+
+          <div class="story-grid">
+            <div class="story-copy">
+              <p>
+                We met during a golden afternoon that felt like it had been waiting for us all
+                along. A shared joke, a long conversation, and an immediate sense that life had
+                shifted into a brighter rhythm.
+              </p>
+              <p>
+                From everyday adventures to the biggest dreams, love has carried us gently and
+                confidently through every chapter. We are grateful for every hand held, every late
+                night conversation, and every moment that taught us how to build a life together.
+              </p>
+              <p>
+                Now we invite the people who have shaped our story to celebrate the next beautiful
+a chapter with us.
+              </p>
+            </div>
+            <div class="story-quote">
+              <span>“</span>
+              <p>With love as our guide, we begin the best chapter yet.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="gallery section-shell reveal" id="gallery">
+          <div class="section-heading">
+            <p class="eyebrow">Bride & Groom</p>
+            <h2>Photographs we treasure</h2>
+          </div>
+
+          <div class="photo-collection">
+            <div class="photo-block">
+              <div class="block-header">
+                <h3>The Groom</h3>
+              </div>
+              <div class="gallery-grid groom-grid">
+                <figure class="photo-card">
+                  <img src="public/images/groom/01.svg" alt="Placeholder groom photograph 1" />
+                  <figcaption>Moments that make us smile</figcaption>
+                </figure>
+                <figure class="photo-card">
+                  <img src="public/images/groom/02.svg" alt="Placeholder groom photograph 2" />
+                  <figcaption>Steady, kind, and full of heart</figcaption>
+                </figure>
+                <figure class="photo-card wide-card">
+                  <img src="public/images/groom/03.svg" alt="Placeholder groom photograph 3" />
+                  <figcaption>Every adventure becomes a memory</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="photo-block">
+              <div class="block-header">
+                <h3>The Bride</h3>
+              </div>
+              <div class="gallery-grid bride-grid">
+                <figure class="photo-card">
+                  <img src="public/images/bride/01.svg" alt="Placeholder bride photograph 1" />
+                  <figcaption>Grace in every smile</figcaption>
+                </figure>
+                <figure class="photo-card">
+                  <img src="public/images/bride/02.svg" alt="Placeholder bride photograph 2" />
+                  <figcaption>Joy, warmth, and light</figcaption>
+                </figure>
+                <figure class="photo-card wide-card">
+                  <img src="public/images/bride/03.svg" alt="Placeholder bride photograph 3" />
+                  <figcaption>Forever begins with love</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="photo-block">
+              <div class="block-header">
+                <h3>Together</h3>
+              </div>
+              <div class="gallery-grid couple-grid">
+                <figure class="photo-card">
+                  <img src="public/images/couple/01.svg" alt="Placeholder couple photograph 1" />
+                  <figcaption>Together, we are home</figcaption>
+                </figure>
+                <figure class="photo-card">
+                  <img src="public/images/couple/02.svg" alt="Placeholder couple photograph 2" />
+                  <figcaption>Our story, beautifully unfolding</figcaption>
+                </figure>
+                <figure class="photo-card wide-card">
+                  <img src="public/images/couple/03.svg" alt="Placeholder couple photograph 3" />
+                  <figcaption>Chosen, celebrated, and deeply loved</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="details section-shell reveal" id="details">
+          <div class="section-heading">
+            <p class="eyebrow">Wedding Details</p>
+            <h2>Join us as we celebrate love</h2>
+          </div>
+
+          <div class="detail-grid">
+            <article class="detail-card">
+              <div class="icon">✦</div>
+              <p class="label">Bride</p>
+              <h3>Ava Marie Hart</h3>
+              <p>Daughter of Mr. & Mrs. Hart</p>
+            </article>
+
+            <article class="detail-card">
+              <div class="icon">✧</div>
+              <p class="label">Groom</p>
+              <h3>Noah James Reed</h3>
+              <p>Son of Mr. & Mrs. Reed</p>
+            </article>
+
+            <article class="detail-card">
+              <div class="icon">❀</div>
+              <p class="label">Wedding Date</p>
+              <h3>12 December 2026</h3>
+              <p>Saturday at 4:30 PM</p>
+            </article>
+
+            <article class="detail-card">
+              <div class="icon">❁</div>
+              <p class="label">Ceremony</p>
+              <h3>Riviera Gardens</h3>
+              <p>4:30 PM</p>
+              <p>Seaside Avenue, Costa del Sol</p>
+            </article>
+
+            <article class="detail-card">
+              <div class="icon">❂</div>
+              <p class="label">Reception</p>
+              <h3>Sunset Terrace</h3>
+              <p>6:00 PM onwards</p>
+              <p>Fine dining, music, and dancing</p>
+            </article>
+
+            <article class="detail-card">
+              <div class="icon">✿</div>
+              <p class="label">RSVP Deadline</p>
+              <h3>20 November 2026</h3>
+              <p>Kindly respond before this date</p>
+            </article>
+          </div>
+
+          <div class="detail-meta">
+            <div class="meta-card">
+              <h3>Venue</h3>
+              <p>Riviera Gardens</p>
+              <p>18 Marina Cove, Costa del Sol</p>
+              <a href="https://maps.google.com/?q=Riviera+Gardens+Costa+del+Sol" target="_blank" rel="noreferrer">
+                Open in Google Maps
+              </a>
+            </div>
+            <div class="meta-card">
+              <h3>Dress Code</h3>
+              <p>Formal Elegance</p>
+              <p>Jewel tones or classic neutrals encouraged</p>
+            </div>
+            <div class="meta-card">
+              <h3>Contact</h3>
+              <p>Ava & Noah Family</p>
+              <p>+34 612 345 678</p>
+              <a href="mailto:hello@avaandnoahwedding.com">hello@avaandnoahwedding.com</a>
+            </div>
+          </div>
+
+          <div class="calendar-actions">
+            <a
+              class="btn btn-primary"
+              href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ava+%26+Noah+Wedding&dates=20261212T163000Z/20261212T233000Z&details=Wedding+ceremony+and+reception+for+Ava+and+Noah&location=Riviera+Gardens%2C+Costa+del+Sol"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Add to Calendar
+            </a>
+          </div>
+        </section>
+
+        <section class="schedule section-shell reveal">
+          <div class="section-heading">
+            <p class="eyebrow">The Day</p>
+            <h2>Wedding schedule</h2>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="time">3:30 PM</span>
+              <div>
+                <h3>Guest Arrival</h3>
+                <p>Welcome drinks and garden seating beneath the lantern-lit courtyard.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="time">4:30 PM</span>
+              <div>
+                <h3>Ceremony</h3>
+                <p>We exchange vows with the sea breeze and evening sun as our backdrop.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="time">6:00 PM</span>
+              <div>
+                <h3>Cocktail Hour</h3>
+                <p>Canapés, photographs, and heartfelt toasts in the terrace lounge.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="time">7:30 PM</span>
+              <div>
+                <h3>Reception Dinner</h3>
+                <p>An elegant evening of dinner, dancing, and the celebration of our forever.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="rsvp section-shell reveal" id="rsvp">
+          <div class="section-heading">
+            <p class="eyebrow">RSVP</p>
+            <h2>We hope you can join us</h2>
+          </div>
+
+          <form class="rsvp-form" id="rsvpForm">
+            <div class="field-row">
+              <label>
+                Full name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="your@email.com" required />
+              </label>
+            </div>
+
+            <div class="field-row two-col">
+              <label>
+                Attendance
+                <select name="attendance" required>
+                  <option value="" selected disabled>Select an option</option>
+                  <option value="joyfully attending">Joyfully attending</option>
+                  <option value="regretfully declining">Regretfully declining</option>
+                </select>
+              </label>
+
+              <label>
+                Number of guests
+                <select name="guests">
+                  <option value="1">1 guest</option>
+                  <option value="2" selected>2 guests</option>
+                  <option value="3">3 guests</option>
+                  <option value="4">4 guests</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Message
+              <textarea name="message" rows="4" placeholder="Leave a note for the couple"></textarea>
+            </label>
+
+            <button type="submit" class="btn btn-primary submit-btn">Send RSVP</button>
+            <p class="form-success" id="rsvpSuccess" aria-live="polite">
+              Thank you! Your RSVP has been received.
+            </p>
+          </form>
+        </section>
+
+        <section class="wishes section-shell reveal" id="wishes">
+          <div class="section-heading">
+            <p class="eyebrow">Guest Wishes</p>
+            <h2>Leave a note for the happy couple</h2>
+          </div>
+
+          <div class="wish-layout">
+            <div class="wish-list" id="wishList" aria-live="polite"></div>
+
+            <form class="wish-form" id="wishForm">
+              <label>
+                Your name
+                <input type="text" id="wishName" placeholder="Guest name" required />
+              </label>
+              <label>
+                Your wish
+                <textarea
+                  id="wishMessage"
+                  rows="4"
+                  placeholder="Share your love, blessings, or wishes for the couple"
+                  required
+                ></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary">Send Wish</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>With heartfelt gratitude, Ava & Noah</p>
+        <p>© <span id="year"></span> All rights reserved</p>
+      </footer>
+    </div>
+
+    <div class="lightbox hidden" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Close image">×</button>
+      <img id="lightboxImage" src="" alt="Expanded wedding photo" />
+      <p id="lightboxCaption"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
